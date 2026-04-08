@@ -1,0 +1,6 @@
+name: astrbot_plugin_volctts
+display_name: 火山语音合成与mp3发送
+desc: 火山引擎TTS( seed-tts-2.0 )：LLM工具触发发语音(wav)或发mp3文件
+version: v0.1.0
+author: rogue233
+repo: "https://github.com/rogue233/astrbot_plugin_volctts"

@@ -1,0 +1,85 @@
+{
+  "enable_tts": {
+    "type": "bool",
+    "default": true,
+    "description": "启用插件",
+    "hint": "关闭后不会提供发语音/发mp3工具。",
+    "obvious_hint": true
+  },
+  "appid": {
+    "type": "string",
+    "default": "",
+    "description": "AppID",
+    "hint": "火山引擎语音合成 AppID（必填）。",
+    "obvious_hint": true
+  },
+  "access_token": {
+    "type": "string",
+    "default": "",
+    "description": "Access Token",
+    "hint": "火山引擎 Access Token（必填）。",
+    "obvious_hint": true
+  },
+  "resource_id": {
+    "type": "string",
+    "default": "seed-tts-2.0",
+    "description": "Resource ID",
+    "hint": "普通TTS建议填 seed-tts-2.0。若报“resource ID mismatched with speaker”，说明 speaker 和 resource_id 不匹配。",
+    "obvious_hint": true
+  },
+  "speaker": {
+    "type": "string",
+    "default": "",
+    "description": "音色ID(speaker)",
+    "hint": "req_params.speaker。请填写与 resource_id 匹配的音色ID（公共音色不要填克隆音色ID）。",
+    "obvious_hint": true
+  },
+  "sample_rate": {
+    "type": "int",
+    "default": 24000,
+    "description": "采样率",
+    "options": [8000, 16000, 22050, 24000, 32000, 44100, 48000],
+    "hint": "默认 24000。",
+    "obvious_hint": true
+  },
+  "speed_ratio": {
+    "type": "int",
+    "default": 0,
+    "description": "语速",
+    "hint": "范围[-50,100]，0为正常。",
+    "obvious_hint": true
+  },
+  "loudness_rate": {
+    "type": "int",
+    "default": 0,
+    "description": "音量",
+    "hint": "范围[-50,100]，0为正常。",
+    "obvious_hint": true
+  },
+  "enable_llm_tool": {
+    "type": "bool",
+    "default": true,
+    "description": "启用工具调用",
+    "hint": "开启后LLM可主动调用 send_voice / send_mp3。",
+    "obvious_hint": true
+  },
+  "enable_llm_response": {
+    "type": "bool",
+    "default": false,
+    "description": "保留文字回复",
+    "hint": "false：工具发完音频后静音本次LLM文字（只发语音/文件）。true：音频+文字都发。",
+    "obvious_hint": true
+  },
+  "max_text_length": {
+    "type": "int",
+    "default": 300,
+    "description": "最大文本长度",
+    "hint": "工具单次合成允许的最大字符数，避免超长导致延迟或费用过高。"
+  },
+  "storage_subdir": {
+    "type": "string",
+    "default": "audio",
+    "description": "保存目录",
+    "hint": "音频保存到 data/plugin_data/astrbot_plugin_volctts/<此目录>/ 下。"
+  }
+}
