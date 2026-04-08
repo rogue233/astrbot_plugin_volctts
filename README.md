@@ -50,7 +50,7 @@ astrbot_plugin_volctts/
 aiohttp
 pydantic
 
-配置说明
+## 配置说明
 安装后，在 AstrBot 插件配置中填写以下参数：
 1. enable_tts
 是否启用插件。
@@ -91,22 +91,23 @@ true：音频和文字都会发送
 音频保存子目录。
 实际保存路径类似：data/plugin_data/astrbot_plugin_volctts/audio/
 
-火山引擎接口说明
+## 火山引擎接口说明
 本插件使用火山引擎官方 TTS SSE 接口，鉴权方式为：
 X-Api-App-Id
 X-Api-Access-Key
 X-Api-Resource-Id
 普通 TTS 使用的 resource_id 为：seed-tts-2.0
 
-音频格式说明
+## 音频格式说明
 语音消息：为了兼容 OneBot QQ，本插件默认让 send_voice 生成 wav 并发送语音消息。
 
 mp3 文件：send_mp3 生成 mp3 文件，并通过文件组件发送。
 
-插件数据目录
+## 插件数据目录
 根据 AstrBot 插件存储规范，大文件保存在：data/plugin_data/astrbot_plugin_volctts/
 默认音频子目录：data/plugin_data/astrbot_plugin_volctts/audio/
-LLM 工具说明
+
+## LLM 工具说明
 工具一：send_voice
 说明：将文本合成为语音并发送语音消息。
 参数：
@@ -129,14 +130,13 @@ filename: 可选，自定义文件名
 
 推荐提示词写法
 如果你希望模型更稳定地使用工具，可以在系统提示词或人格提示词中加入类似描述：
-
 TXT
 当用户希望你发语音、唱一段、用声音说、来段语音时，优先调用 send_voice 工具。
 当用户希望你发送 mp3 文件、导出音频、生成 mp3 给他时，调用 send_mp3 工具。
 如果已经调用了语音工具，就不要再重复输出同样的文字内容，除非配置允许保留文字回复。
 
 
-常见问题
+## 常见问题
 1. 插件已启用，但模型不调用工具
 这不是插件故障，通常是模型本身没有正确理解工具能力。
 建议：确认 AstrBot 侧已经启用工具调用，在系统提示词中明确告诉模型何时使用 send_voice 和 send_mp3，使用更擅长 function calling 的模型
@@ -169,14 +169,14 @@ enable_llm_response
 
 
 
-已知说明
+## 已知说明
 本插件当前针对 OneBot QQ 优化
 语音消息默认走 wav
 mp3 走文件发送，不作为语音消息发送
 本插件不做关键词/正则触发，只依赖 LLM 工具调用
 
 
-备注
+## 备注
 如果后续你购买了火山引擎的音色克隆能力，也可以在此插件基础上扩展为：
 普通 TTS
 克隆音色 TTS
